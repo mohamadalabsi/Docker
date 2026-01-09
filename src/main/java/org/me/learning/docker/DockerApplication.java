@@ -9,7 +9,7 @@ public class DockerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DockerApplication.class, args);
 	}
-// starting docker with java soon
+// starting docker with java today
 
 
 
