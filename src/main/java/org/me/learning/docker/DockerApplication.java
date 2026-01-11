@@ -34,4 +34,14 @@ public class DockerApplication {
 
 
 
+//	1 now he explained the first way and it is make a container first and then from command line
+//	 we make the configuration and put the project inside it and run it
+
+
+//  2 the second way is to have docker file inside each project and thats it but this is if we have
+// a lot of projects and we should not do the first way but at the end we just in these to ways
+// we used java and spring alone and in the real world it is different
+
+//	3 the third way and the one i want is docker compose
+//	 before that i want to create a quick spring boot project here
 }
