@@ -40,8 +40,23 @@ public class DockerApplication {
 
 //  2 the second way is to have docker file inside each project and thats it but this is if we have
 // a lot of projects and we should not do the first way but at the end we just in these to ways
-// we used java and spring alone and in the real world it is different
+//to automate this we use docker file for all projects and with one command we can create the image
+//	first we clean and create jar file , then dockerfile more steps in dockerfile
 
-//	3 the third way and the one i want is docker compose
+//	then is docker compose
 //	 before that i want to create a quick spring boot project here
+//	now it is used to work with multiple containers but still we have to make docker file
+//	so at the end the is a docker file inside each project or service and then docker compose to
+//	make multiple containers , more steps in docker compose
+
+
+
+//	now docker volumes
+//	 we use it to not lose data when the container is not running or removed
+//	without docker we use database on our machine and the data is stored on our machine
+//	but with docker if we have database inside a container and the container is not running
+//	the data is lost so we use docker volumes to store the data on our machine even if it is in a
+//	container , it is in docker compose file
+//	make sure in app properties to write update so the tables are created automatically and not
+//	create so it does not try to create the tables again and again
 }

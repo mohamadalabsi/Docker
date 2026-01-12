@@ -1,0 +1,56 @@
+#here to work with multiple containers , we can run and stop multiple containers with just one
+#command
+#first we want to build an image from the project and DB and from help of docker file
+
+version: "3.7"
+services:
+#  1 container for spring boot app
+  app:
+    build: .
+      #we should expose the port 8081 to access the app from outside the container
+    depends_on:
+      - postgres
+    ports:
+      #to container port number and the one is connected to the app
+      - "8081:8080"
+    networks:
+       -  my_network
+# 2 container for postgres database
+  postgres:
+    image: "postgres:16" # version of postgres
+    environment:            #environment variables in application properties file but here we set them for postgres container
+      POSTGRES_USER: absi
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: absidb
+    ports:
+        - "5433:5432"
+    networks:
+    - my_network
+#exposed port and the second port is PostgreSQL port inside the container and the one connected to the app
+
+#     ports and networks are  NOT environment variables , They must be siblings of environment, not inside it
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+#then we should add network to connect both containers
+networks:
+  my_network:
+    driver: bridge
+
+#      we should add network to connect both containers
+#now both containers can communicate with each other using the network my_network
+
+
+#      we should also add this to postgres container to persist the data even if we stop and remove the container
+volumes:
+  postgres_data:
+
+
+
+
+#    then docker compose up --build in terminal to build and run the containers
+#    docker compose down to stop and remove the containers
+
+
+
+
+
